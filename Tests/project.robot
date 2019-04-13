@@ -7,8 +7,8 @@ Library  AcceptOrderTrans.py
 Library  GetActiveChildCount.py
 
 *** Variables ***
-${loc}  ADSETX
-${destuser}  aes_pilot
+${loc}  nagpur
+${destuser}  dumyUser
 ${PATH}  D:\\1.txt
 ${BATCH}  D:\\1.bat
 
