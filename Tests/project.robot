@@ -31,3 +31,4 @@ create Ada Parent
     ${ParentOrderID} =   NewOrderTrans
     ${GetActiveChildCount} =  GetActiveChildCount
     should be equal  ${GetActiveChildCount}  GetActiveChildCount
+    ##should be equal  ${GetActiveChildCount}  GetActiveChildCount
