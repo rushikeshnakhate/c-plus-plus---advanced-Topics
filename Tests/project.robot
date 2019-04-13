@@ -16,7 +16,7 @@ ${BATCH}  D:\\1.bat
 *** Test Cases ***
 FirstTestCase
     ${str1} =	convert to lowercase  ${loc}
-    Should Be Equal	${str1}	adsetx
+    Should Be Equal	${str1}	nagpur
 
 
 SecondTestCase
