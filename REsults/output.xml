@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.7.1 on win32)" generated="20190413 23:00:37.566" rpa="false">
+<suite id="s1" name="Project" source="C:\Users\ayush\PycharmProjects\Basics\tests\project.robot">
+<test id="s1-t1" name="FirstTestCase">
+<kw name="Convert To Lowercase" library="String">
+<doc>Converts string to lowercase.</doc>
+<arguments>
+<arg>${loc}</arg>
+</arguments>
+<assign>
+<var>${str1}</var>
+</assign>
+<msg timestamp="20190413 23:00:37.613" level="INFO">${str1} = adsetx</msg>
+<status status="PASS" starttime="20190413 23:00:37.613" endtime="20190413 23:00:37.613"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${str1}</arg>
+<arg>adsetx</arg>
+</arguments>
+<status status="PASS" starttime="20190413 23:00:37.613" endtime="20190413 23:00:37.613"></status>
+</kw>
+<status status="PASS" starttime="20190413 23:00:37.613" endtime="20190413 23:00:37.613" critical="yes"></status>
+</test>
+<test id="s1-t2" name="SecondTestCase">
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${PATH}</arg>
+<arg>${loc} ${destuser}}</arg>
+</arguments>
+<msg timestamp="20190413 23:00:37.628" level="INFO" html="yes">Created file '&lt;a href="file://D:\1.txt"&gt;D:\1.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20190413 23:00:37.628" endtime="20190413 23:00:37.628"></status>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>${PATH}</arg>
+</arguments>
+<msg timestamp="20190413 23:00:37.628" level="INFO" html="yes">File '&lt;a href="file://D:\1.txt"&gt;D:\1.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20190413 23:00:37.628" endtime="20190413 23:00:37.628"></status>
+</kw>
+<status status="PASS" starttime="20190413 23:00:37.628" endtime="20190413 23:00:37.628" critical="yes"></status>
+</test>
+<test id="s1-t3" name="ThirdTestCase">
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>${BATCH}</arg>
+</arguments>
+<msg timestamp="20190413 23:00:37.628" level="INFO" html="yes">Created file '&lt;a href="file://D:\1.bat"&gt;D:\1.bat&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20190413 23:00:37.628" endtime="20190413 23:00:37.628"></status>
+</kw>
+<kw name="Run" library="OperatingSystem">
+<doc>Runs the given command in the system and returns the output.</doc>
+<arguments>
+<arg>${BATCH}</arg>
+</arguments>
+<msg timestamp="20190413 23:00:37.628" level="INFO">Running command 'D:\1.bat 2&gt;&amp;1'.</msg>
+<status status="PASS" starttime="20190413 23:00:37.628" endtime="20190413 23:00:37.691"></status>
+</kw>
+<status status="PASS" starttime="20190413 23:00:37.628" endtime="20190413 23:00:37.691" critical="yes"></status>
+</test>
+<test id="s1-t4" name="create Ada Parent">
+<kw name="New Order Trans" library="NewOrderTrans">
+<assign>
+<var>${ParentOrderID}</var>
+</assign>
+<msg timestamp="20190413 23:00:37.691" level="INFO">NewOrderTrans</msg>
+<msg timestamp="20190413 23:00:37.691" level="INFO">${ParentOrderID} = NewOrderTrans</msg>
+<status status="PASS" starttime="20190413 23:00:37.691" endtime="20190413 23:00:37.691"></status>
+</kw>
+<kw name="Get Active Child Count" library="GetActiveChildCount">
+<assign>
+<var>${GetActiveChildCount}</var>
+</assign>
+<msg timestamp="20190413 23:00:37.706" level="INFO">GetActiveChildCount</msg>
+<msg timestamp="20190413 23:00:37.706" level="INFO">${GetActiveChildCount} = GetActiveChildCount</msg>
+<status status="PASS" starttime="20190413 23:00:37.691" endtime="20190413 23:00:37.706"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${GetActiveChildCount}</arg>
+<arg>GetActiveChildCount</arg>
+</arguments>
+<status status="PASS" starttime="20190413 23:00:37.706" endtime="20190413 23:00:37.706"></status>
+</kw>
+<status status="PASS" starttime="20190413 23:00:37.691" endtime="20190413 23:00:37.706" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20190413 23:00:37.566" endtime="20190413 23:00:37.706"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0">Critical Tests</stat>
+<stat pass="4" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" id="s1" name="Project">Project</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
