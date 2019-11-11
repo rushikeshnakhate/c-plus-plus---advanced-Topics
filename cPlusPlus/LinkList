@@ -13,6 +13,7 @@ class LinkList{
 public:
   Node* add(const int & element ) ;
   Node* get_last_node();
+  Node*add_to_front (const int & element);
   void  print_list();
 };
 
@@ -23,8 +24,7 @@ public:
 Node* LinkList::add(const int & element ) {
   Node *new_node = head ;
   if ( new_node == nullptr) {
-     new_node= new Node;
-     head = new_node ;
+    new_node = add_to_front(element) ;
   }else {
     new_node= new Node;
     Node *last_node = get_last_node() ;
@@ -36,6 +36,14 @@ Node* LinkList::add(const int & element ) {
   return new_node ;  
 }
 
+
+Node *LinkList::add_to_front(const int & element) {
+  Node *new_node = new Node ;
+  new_node->data = element ;
+  new_node->next = head ;
+  head= new_node ;
+  return new_node ; 
+}
 
 
 
@@ -49,6 +57,8 @@ Node* LinkList::get_last_node() {
   
   return counter ;
 }
+
+
 
 void LinkList::print_list() {
   Node *counter = head ;
@@ -71,6 +81,7 @@ int main(){
   p->add(10) ;
   p->add(1) ;
   p->add(2) ;
+  p->add_to_front(25) ;
   p->print_list() ;
   return 0 ;
 }
