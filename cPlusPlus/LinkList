@@ -15,6 +15,7 @@ public:
   Node* get_last_node();
   Node*add_to_front (const int & element);
   void  print_list();
+  void reverse_list() ;
 };
 
 
@@ -75,6 +76,24 @@ void LinkList::print_list() {
 
 
 
+void LinkList::reverse_list() {
+  Node *current ,*next ,*prev ;
+  
+  current = nullptr ;
+  next = nullptr ;
+  prev = nullptr ;
+  
+  current = head ;
+  while ( current != nullptr) {
+    next = current->next ;
+    current->next = prev ;
+    prev = current ;
+    current = next ;    
+  }
+  head = prev ;
+  
+}
+
 
 int main(){
   auto p = new LinkList() ;
@@ -82,6 +101,8 @@ int main(){
   p->add(1) ;
   p->add(2) ;
   p->add_to_front(25) ;
+  p->print_list() ;
+  p->reverse_list() ;
   p->print_list() ;
   return 0 ;
 }
