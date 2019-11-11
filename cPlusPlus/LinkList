@@ -1,0 +1,78 @@
+#include <iostream>
+#include<vector>
+#include <boost/algorithm/string.hpp>
+using namespace std;
+
+
+class Node{
+  int data ;
+  Node *next ;
+
+public:
+  static Node *s_head ;
+  Node * add( const int &element ) ;
+  Node * get_last_node();
+  void print_list();
+  
+};
+
+
+
+
+Node *Node::s_head = nullptr ;
+
+Node* Node::add( const int & element ) {
+  Node *n = s_head ;
+  if ( n == nullptr) {
+    n = new Node() ;
+    s_head = n ;
+  }else {
+    n  =get_last_node() ;
+  }
+  n->data = element ;
+  n->next = nullptr ;
+  return n ;
+}
+
+
+
+
+void Node::print_list() {
+  Node *couter= s_head ;
+  if ( s_head == nullptr) {
+    std::cout<<"list is empty"<<std::endl ;
+    return ;
+  }
+  
+  std::cout<<couter->data<<std::endl ;
+  
+  while ( couter->next != nullptr) {
+    std::cout<<couter->data<<std::endl ;
+    couter = couter->next ;
+  }
+}
+
+
+
+
+Node *Node::get_last_node() {
+  Node *couter= s_head ;
+  if ( s_head == nullptr)
+    return nullptr ;
+  while ( couter->next != nullptr) {
+    couter = couter->next ;
+  }
+  return couter ;
+}
+
+
+
+
+int main() {
+  Node::s_head = nullptr ;
+  Node * node = new Node() ; 
+  node->add(10);  
+  node->print_list();
+  return 0;
+}
+
