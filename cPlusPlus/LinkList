@@ -1,78 +1,76 @@
 #include <iostream>
-#include<vector>
-#include <boost/algorithm/string.hpp>
+
 using namespace std;
 
-
-class Node{
+struct Node {
   int data ;
   Node *next ;
+};
 
-public:
-  static Node *s_head ;
-  Node * add( const int &element ) ;
-  Node * get_last_node();
-  void print_list();
+class LinkList{
+  Node *head ;
   
+public:
+  Node* add(const int & element ) ;
+  Node* get_last_node();
+  void  print_list();
 };
 
 
 
 
-Node *Node::s_head = nullptr ;
 
-Node* Node::add( const int & element ) {
-  Node *n = s_head ;
-  if ( n == nullptr) {
-    n = new Node() ;
-    s_head = n ;
+Node* LinkList::add(const int & element ) {
+  Node *new_node = head ;
+  if ( new_node == nullptr) {
+     new_node= new Node;
+     head = new_node ;
   }else {
-    n  =get_last_node() ;
+    new_node= new Node;
+    Node *last_node = get_last_node() ;
+    last_node->next = new_node ;
+    
   }
-  n->data = element ;
-  n->next = nullptr ;
-  return n ;
+  new_node->data = element  ;
+  new_node->next = nullptr ;
+  return new_node ;  
 }
 
 
 
 
-void Node::print_list() {
-  Node *couter= s_head ;
-  if ( s_head == nullptr) {
-    std::cout<<"list is empty"<<std::endl ;
-    return ;
+Node* LinkList::get_last_node() {
+  Node *counter = head ;
+  if ( counter ==nullptr) {
+    return new Node ;
   }
+  while ( counter->next != nullptr)
+    counter = counter->next ;
   
-  std::cout<<couter->data<<std::endl ;
+  return counter ;
+}
+
+void LinkList::print_list() {
+  Node *counter = head ;
+  if ( counter == nullptr) 
+    std::cout<<"Ouch!!List is empty" <<std::endl ;
   
-  while ( couter->next != nullptr) {
-    std::cout<<couter->data<<std::endl ;
-    couter = couter->next ;
+  
+  while ( counter != nullptr) {
+    std::cout<<counter->data<<std::endl ;
+    counter = counter->next ;
   }
 }
 
 
 
 
-Node *Node::get_last_node() {
-  Node *couter= s_head ;
-  if ( s_head == nullptr)
-    return nullptr ;
-  while ( couter->next != nullptr) {
-    couter = couter->next ;
-  }
-  return couter ;
+
+int main(){
+  auto p = new LinkList() ;
+  p->add(10) ;
+  p->add(1) ;
+  p->add(2) ;
+  p->print_list() ;
+  return 0 ;
 }
-
-
-
-
-int main() {
-  Node::s_head = nullptr ;
-  Node * node = new Node() ; 
-  node->add(10);  
-  node->print_list();
-  return 0;
-}
-
